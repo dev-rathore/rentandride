@@ -1,0 +1,34 @@
+@import "./abstracts/variables";
+@import "./abstracts/mixins";
+@import "./base/base";
+@import "./base/typography";
+@import "./components/buttons";
+@import "./components/icons";
+
+// Navigation Section
+@import "./sections/navbar";
+
+// Header Section
+@import "./sections/header";
+
+// How It Works Section
+@import "./sections/how-it-works";
+
+// Features Section
+@import "./sections/features";
+
+@import "./sections/form";
+
+@import "./sections/renter-profile";
+@import "./sections/vehicles-list";
+@import "./sections/add-vehicle";
+@import "./sections/place-order";
+@import "./sections/payment";
+
+@import "./sections/all-rides";
+@import "./sections/order-details";
+
+@import "./sections/admin/admin";
+
+// Footer
+@import "./sections/footer";

@@ -1,0 +1,70 @@
+
+    <script src="/socket.io/socket.io.js"></script>
+
+<script>
+let socket=io()
+socket.emit('join','adminRoom')
+
+socket.on('orderPlaced',(data)=>{
+
+// use noty notification
+window.location.reload();
+})
+
+</script>
+
+<section id="dashboard" class="p-4">
+    <div class="table-responsive">
+        <table class="table table-dark table-sm align-middle text-center table-striped">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col" class="p-2">Rider Id</th>
+                <th scope="col" class="p-2">Renter Id</th>
+                <th scope="col" class="p-2">Vehicle Name</th>
+                <th scope="col" class="p-2">Vehicle Number</th>
+                <th scope="col" class="p-2">Address</th>
+                <th scope="col" class="p-2">Duration</th>
+                <th scope="col" class="p-2">Bill</th>
+                <th scope="col" class="p-2">Booked On</th>
+                <th scope="col" class="p-2">Time</th>
+                <th class="p-2">Status</th>
+                <th scope="col" class="p-2">Action</th>
+              </tr>
+            </thead>
+            <tbody id="test">
+              <% for (var i =0; i <order.length ;  i++ ) { %>
+              <tr>
+                <td><%= order[i].user_id%></td>
+                <td><%= order[i].booked_vehicle.r_id%></td>
+                <td><%= order[i].booked_vehicle.VehicleName%></td>
+                <td><%= order[i].booked_vehicle.VehicleNumber%></td>
+                <td><%= order[i].location%></td>
+                <td><%= order[i].time %> Days</td>
+                <td><%= order[i].bill%></td>
+                <td scope="row"><%= moment(order[i].createdAt).format('DD-MM-YYYY') %></td>
+                <td><%= moment(order[i].createdAt).format('hh : mm ')%></td>
+                <td><%= order[i].status%></td>
+
+                <td>
+                <form action="/updateStatus" method="post">
+                <select value="" name="status" id=""  onchange="this.form.submit()" > 
+                <option name="dsd" hidden>Hidden option</option>
+                <option value="" disabled selected hidden>Please Choose...</option>
+                <option >Confirmed</option> 
+                <option >Payment Done</option>   
+                <option >Vehicle On The Way</option>            
+                <option >Vehicle Delivered</option>            
+                <option >Completed</option>            
+                <input type="hidden" name="id" value=" <%= JSON.stringify(order[i]._id) %>">
+                <input type="hidden" name="Vehicle" value=" <%=JSON.stringify(order[i].booked_vehicle._id) %>" >
+                <!-- <input type="hidden" name="Vehicle" value=" <%=//JSON.stringify(order[i].booked_vehicle.r_id) %>" > -->
+                </select>
+                </form>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+        </table>
+    </div>
+
+</section>

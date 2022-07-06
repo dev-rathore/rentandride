@@ -1,0 +1,35 @@
+
+    <section id="form">
+      <form action="/login" method="POST" class="form-inputs">
+        <h1>Login</h1>
+
+        <% if (messages.error) { %>
+          <p class="error-text px-4 text-center"><%= messages.error %></p>
+        <% } %>
+        <p class="error-text px-4 text-center"></p>
+
+        <div class="input-effect input-effect2">
+        	<!-- <input class="effect-2" id="email" type="email" autocomplete="off" required/> -->
+          <input class="effect-2" id="email" name="email" type="text" autocomplete="off" required/>
+          <label for="email">Email</label>
+          <span class="focus-border">
+            <i></i>
+          </span>
+        </div>
+
+        <div class="input-effect input-effect2">
+        	<input class="effect-2" id="password" type="password" name="password" autocomplete="off" required/>
+          <label  for="password">Password</label>
+          <span class="focus-border">
+            <i></i>
+          </span>
+        </div>
+        
+        <button class="btn-submit" type="submit">
+            Login
+        </button>
+        
+        <a class="extra-text" href="/register/rider">New User?</a>
+
+      </form>
+    </section>

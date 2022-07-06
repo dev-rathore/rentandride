@@ -1,0 +1,84 @@
+
+.vehicle-card{
+	min-width: 240px;
+	overflow: hidden;
+	border-radius: 1px;
+	background: $light;
+	cursor: pointer;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+	font-family: $encode-sans;
+}
+
+.custom-bottom-hover {
+	transition: all 0.25s ease-in;
+	border-bottom: 5px solid transparent;
+	&:hover {
+		transform: translateY(-5px);
+		transform: scale(1.02);
+		border: none;
+		border-bottom: 5px solid $primary;
+	 }
+ }
+
+.book-now{
+	// position: relative;
+	// bottom: 20%;
+	// left: 22.8%;	
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.book-now-btn {
+	transform: translateY(0px);
+	transition: 0.3s linear;
+	background:  $primary;
+	font-family: $encode-sans;
+	border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	color: $light;
+	padding: 0;
+	margin: 0;
+
+	&:hover{
+		transform: translateY(-6px);
+		background: $primaryHover;
+	}
+
+	& span {
+		transition: transform 0.3s;
+		display: inline-block;
+		padding: 10px 15px;
+		font-size: 1em;
+		// margin:0;
+	}
+}
+
+.book-now-btn .shopping-cart, .shopping-cart-checked{
+	background: $dark;
+	border: 0;
+	// margin: 0;
+}
+
+// .book-now-btn .shopping-cart {
+// 	// transform: translateX(-10%);
+//   // padding-right: 10px;
+// }
+
+.book-now-btn .shopping-cart-checked {
+	transform: translateX(-100%);
+  position: absolute;
+	background: $dark;
+	z-index: 1;
+  left: 0;
+  top: 0;
+}
+
+.book-now-btn .buy {z-index: 3; font-weight: bolder;}
+
+.book-now-btn:hover .shopping-cart {transform: translateX(-110%);}
+
+.book-now-btn:hover .shopping-cart-checked {transform: translateX(0%);}

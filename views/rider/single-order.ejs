@@ -1,0 +1,32 @@
+
+<script src="/socket.io/socket.io.js"></script>
+
+<section class="status m-auto">
+  <div>
+      <div class="status-box"> 
+      <div class="d-flex justify-content-between align-items-center mb-5">
+          <h1 class="order-status"> Track Delivery Status</h1>
+          <h6 class="bg-white py-1 rounded-pill px-4">
+              <%= data._id%>
+          </h6>
+          <input type="hidden" id="hiddenInput" 
+          value="<%= JSON.stringify(data)%>" >
+      </div>
+      <ul>
+        <!-- step completed and current -->
+          <li class="status_line fs-5 pb-5" data-status="Confirmed">
+              <span>Order Placed</span></li>
+          <li class="status_line fs-5 pb-5" data-status="Payment Done">
+              <span>Payment Done</span></li>
+          <li class="status_line fs-5 pb-5" data-status="Vehicle On The Way">
+              <span>Vehicle on the Way</span></li>
+          <li class="status_line fs-5 pb-5" data-status="Vehicle Delivered">
+              <span>Vehicle Delivered</span></li>
+          <li class="status_line fs-5" data-status="Completed">
+              <span>Vehicle Returned</span></li>    
+      </ul>
+      </div>
+  </div>
+</section>
+
+<script src="/js/single-order.js"></script>

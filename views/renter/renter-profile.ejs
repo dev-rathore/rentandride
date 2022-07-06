@@ -1,0 +1,128 @@
+
+  <section id="renter-profile">
+    <div class="d-flex justify-content-center flex-column align-items-center">
+      
+      <% if (messages.error) { %>
+        <span class="text-red-500 text-sm"><%= messages.error %></span>
+      <% } %>
+      
+      <h2 class="renter-name">Hey, Renter</h2>
+    </div>
+    <div class="py-4 d-flex justify-content-center">
+      <button onclick="location.href = '/renter-profile/add-vehicle';" 
+        class="btn-custom mt-2 mb-4">
+        Add a Vehicle
+      </button>
+    </div>
+
+    <% if(data.length>0) { %>
+
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <% data.forEach((vehicle, i) => { %>
+        <div class="col-md-4 col-sm-10 vehicle pt-3 pb-4 m-3">
+          <div class="d-flex justify-content-center align-items-center">
+            <table>
+              <tr>
+                <td colspan="2" class="text-center">
+                  <span class="bold">Vehicle : </span>
+                  <%= vehicle.VehicleName %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="bold">Vehicle Number: </span>
+                  <%= vehicle.VehicleNumber %>
+                </td>
+                <td>
+                  <span class="bold">Model : </span>
+                  <%= vehicle.Model %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="bold">Type : </span>
+                  <% if(vehicle.Type === 2) { %>
+                      Two
+                  <% } else { %>
+                      Four
+                  <% } %>
+                  Wheeler
+                </td>
+                <td>
+                  <span class="bold">Gear : </span>
+                  <%= vehicle.Gear %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="bold">Fuel : </span>
+                  <%= vehicle.Fuel %>
+                </td>
+                <td>
+                  <span class="bold">Travelled : </span>
+                  <%= vehicle.Travelled %> kms
+                </td>
+              </tr>
+              <tr>
+                <td><span class="bold">Mileage : </span>
+                  <%= vehicle.Mileage %> km/l
+                </td>
+                <td>
+                  <span class="bold">Status : </span>
+                  
+                  <% if(vehicle.booked === true) { %>
+                    <span class="green">
+                      Rented
+                    </span>
+                  <% } else { %>
+                    <span class="red">
+                      Not Rented
+                    </span>
+                  <% } %>
+                  <!-- Red if not rented and Green if rented -->
+                  <!-- Status = Rented or Not Rented -->
+                </td>
+              </tr>
+              <tr>
+
+                <!-- ERROR here -->
+
+                 <% if(owners[i]  == undefined && duration[i] == undefined) { %>  
+                  <td></td>
+                  <td></td>
+                <%} else { %>
+
+                  <% if(vehicle.booked === true) { %>
+                <td><span class="bold">Rented By : </span>
+                  <%= owners[i] %>
+                </td>
+
+                <td><span class="bold">Booked For : </span>
+                  <%= duration[i]  %> Days
+                </td>   
+                <% }%>
+                <% }%> 
+              </tr> 
+            </table>
+          </div>
+
+          <div class="mt-3 d-flex justify-content-around">
+            <button class="btn btn-outline-info rounded-circle" onclick="location.href = '/renter-profile/delete/<%= vehicle._id %>';">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+            <button class="btn btn-info rounded-circle" onclick="location.href = '/renter-profile/update/<%= vehicle._id %>';">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+          </div>
+          
+        </div>
+        <% }) %>
+      </div>
+    </div>
+
+    <% } else { %>
+      <h2 class="text-center"> Add Your First Vehicle </h2>
+      <% } %>
+
+  </section>

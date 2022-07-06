@@ -1,0 +1,42 @@
+
+#renter-profile{
+  padding: 20px 20px 40px;
+  min-height: 90vh;
+}
+
+.renter-name{
+  padding-top: 30px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.vehicle{
+  color: $light;
+  background-color: $dark;
+  box-shadow: $boxShadow;
+
+  button{
+    width: 50px;
+    height: 50px;
+
+    &:nth-child(1){
+      color: $light;
+    }
+
+    &:nth-child(2){
+      color: $dark;
+    }
+  }
+
+  table{
+    td{
+      padding: 10px 15px;
+    }
+  }
+
+  p{
+    display: inline-block;
+  }
+}
+
+// Table in mobile view has to be fixed

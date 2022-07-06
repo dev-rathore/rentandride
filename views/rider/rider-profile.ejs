@@ -1,0 +1,78 @@
+
+<section id="vehicles-list" class="container-fluid">
+	<div class="row justify-content-center py-4">
+		<% data.forEach((vehicle) => { %>
+		<form action="/rider-profile/place-order" method="post" class="vehicle-card col col-md-3 col-sm-9 p-0 custom-bottom-hover m-4 h-100">
+			<img src="./images/<%= vehicle.image %>" 
+			alt="Vehicle-Image" class="d-block w-100 bg-white">
+
+			<div class="px-4 py-3 d-flex flex-column align-items-center">
+				<p class="text-uppercase text-center">
+					<span class="bold">Vehicle : </span><%= vehicle.VehicleName %><br>
+					<span class="bold">Model : </span><%= vehicle.Model %><br>
+					<span class="bold">Gear : </span><%= vehicle.Gear %>
+				</p>
+	
+				<div class="w-100 d-flex justify-content-center align-items-center pb-2">
+					<table class="fs-5 fs-6">
+						<tr>
+							<td colspan="2" class="text-center p-1">
+								<span class="bold">Type : </span>
+									<% if(vehicle.Type === 2) { %>
+										Two Wheeler
+									<% } else { %>	
+										Four Wheeler
+									<% } %>	
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="text-center p-1">
+								<span class="bold">Travelled : </span><%= vehicle.Travelled %> kms
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="text-center p-1">
+								<span class="bold">Mileage : </span><%= vehicle.Mileage %> km/l
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="text-center p-1">
+								<span class="bold">Fuel : </span><%= vehicle.Fuel %>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="text-center p-1">
+								<span class="bold">Price : </span>
+								<% if(vehicle.Type === 2) { %>
+                	<i class="fa-solid fa-indian-rupee-sign"></i>
+                	200/Day
+								<% } else { %>
+									<i class="fa-solid fa-indian-rupee-sign"></i>
+									600/Day
+								<% } %>	
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<input type="hidden" value="<%= JSON.stringify(vehicle) %>" name="vehicle" >
+				
+				<div class="book-now">
+					<button type="submit"
+					data-vehicle="<%= JSON.stringify(vehicle) %>"
+						class="book-now-btn">
+						<span class="shopping-cart">
+							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+						</span>
+						<span class="shopping-cart-checked">
+							<i class="fa-solid fa-circle-check"></i>
+						</span>
+						<span class="buy">Book Now</span>
+					</button>
+				</div>
+			</div>
+	
+		</form>
+		<% }) %>
+	</div>
+</section>

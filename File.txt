@@ -1,0 +1,14 @@
+npm i connect-mongodb-session
+npm i express
+npm i ejs
+npm i express-ejs-layouts
+npm i express-flash
+npm i express-session
+npm i dotenv
+npm i moment
+npm i mongoose
+npm i multer
+npm i passport
+npm i passport-local
+npm i socket.io
+npm i validator

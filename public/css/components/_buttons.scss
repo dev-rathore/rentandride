@@ -1,0 +1,51 @@
+
+.btn-outline-custom{
+  background-color: transparent;
+  color: $primary;
+  padding: 8px 25px;
+  border: 1.5px solid $primary;
+  border-radius: 50px;
+  font-family: $encode-sans;
+  transition: all 0.3s ease;
+
+  &:hover{
+    background: $primary;
+    color: $light;
+  }
+}
+
+.btn-custom{
+  background: $primary;
+  font-family: $encode-sans;
+  color: $light;
+  border: 1.5px solid $primary;
+  padding: 8px 25px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+
+  &:hover{
+    background: $primaryHover;
+    border: 1.5px solid $primaryHover;
+  }
+}
+
+// Submit Button
+.btn-submit{
+  width: 210px;
+  margin-top: 25px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 10px 0px;
+  font-weight: 400;
+  font-size: 15px;
+  color: $light;
+  border: none;
+  border-radius: 25px;
+  background: $primary;
+  box-shadow: $boxShadow;
+  transition: all 0.3s ease;
+
+  &:hover{
+    background: $primaryHover;
+  }
+}

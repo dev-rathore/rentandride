@@ -1,0 +1,52 @@
+
+#how-it-works h1{
+  padding-top: 4%;
+  padding-bottom: 2%;
+  text-align: center;
+  text-shadow: 2px 2px rgba($dark, 0.3);
+}
+
+.steps{
+  padding: 3% 4% 5% 4%;
+  font-family: $encode-sans;
+}
+
+.step{
+  text-align: center;
+  width: 250px;
+  // height: 250px;
+  margin: 20px;
+  margin-top: 60px;
+  padding: 65px 25px 15px 25px;
+  color: $dark;
+  position: relative;
+  transition: all 0.25s ease-in;
+  box-shadow: 0px 10px 40px rgba(0,0,0,0.1);
+
+  &:hover{
+    transform: scale(1.02);
+  }
+
+  h3{
+    font-weight: 700;
+  }
+
+  p{
+    color: rgba($dark, 0.9);
+  }
+
+  .step-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -42px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: $primary;
+    color: $light;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+  }
+}

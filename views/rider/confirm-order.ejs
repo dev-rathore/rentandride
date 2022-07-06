@@ -1,0 +1,65 @@
+
+  <section id="payment">
+    <form action="/rider-profile/confirm-payment" method="post" class="d-flex justify-content-center align-items-center flex-column">
+      <div class="box py-4 px-3 mx-4 mt-5 mb-2">
+        <div class="d-flex justify-content-center align-items-center flex-column">
+          <h3>Scan the QR code to Pay</h3>
+          <table>
+            <tr>
+              <td colspan="2"><span class="bold">Order Id : </span>
+                <%= data.r_id%>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="bold">Model : </span>
+                <%= data.Model%>
+              </td>
+              <td>
+                <span class="bold">Type : </span>
+                Four Wheeler
+              </td>
+            </tr>
+            <tr>
+              <td><span class="bold">Vehicle Number : </span>
+                <%= data.VehicleNumber%>
+              </td>
+              <td>
+                <span class="bold">Bill : </span>
+                &nbsp;<i class="fa-solid fa-indian-rupee-sign"></i>
+                <%= " " + bill %>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="bold">Booking For : </span>
+                <%=totalDays %> Days
+              </td>
+              <td>
+                <span class="bold">Phone : </span>
+                <%=mobile %>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <span class="bold">Address : </span>
+                <%=location %>
+              </td>
+            </tr>
+          </table>
+          <div class="my-3">
+            <img width="200px" src="/assets/qr-code.jpg" alt="QR Code">
+          </div>
+        </div>
+      </div>
+
+      <input type="hidden" name="vehicle" value="<%= JSON.stringify(data) %> ">
+
+      <input type="hidden" name="bill" value="<%=bill %>">
+      <input type="hidden" name="location" value="<%=location %>">
+      
+      <input type="hidden" name="mobile" value="<%=mobile %>">
+      <input type="hidden" name="totalDays" value="<%=totalDays %>">
+
+      <button class="btn-submit" type="submit">Confirm</button>
+    </form>
+  </section>

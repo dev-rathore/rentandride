@@ -1,0 +1,24 @@
+
+  <header class="row justify-content-center align-items-center">
+      <div class="hero-header col col-md-4">
+        <p>Welcome to Rent & Ride</p>
+        <h1 class="hero-heading">Rent a Ride <br> Enjoy your Ride</h1>
+        <div>
+          <button onclick="location.href = '/register/renter';"
+            class="btn-outline-custom">List a Vehicle</button>
+          <button onclick="location.href = '/register/rider';" 
+            class="btn-custom">Rent a Vehicle</button>
+        </div>
+      </div>
+
+    <img class="hero-image col col-md-6" src="assets/hero-image.jpg" alt="Hero-Image">
+  </header>
+
+  <%- include("partials/how-it-works")-%>  
+
+  <%- include("partials/features")-%> 
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
