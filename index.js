@@ -10,7 +10,6 @@ const MongoDbSession = require('connect-mongodb-session')(session)
 const UserModel = require('./models/User')
 const vehicleModel = require('./models/renter/Vehicle')
 const Order = require('./models/booker/order')
-const Income=require('./models/renter/income')
 const passport = require('passport');
 const flash = require('express-flash');
 const { init } = require('./Authentication/passport');
@@ -21,7 +20,6 @@ var validator = require('validator');
 const Emitter=require('events');//this is used to emit events
 const moment=require('moment');
 const { json } = require('express');
-const fast2sms = require('fast-two-sms')
 
 const app = express();
 const publicDir = path.join(__dirname,'/public'); 
@@ -378,14 +376,21 @@ var bill;
 
                 bill=TotalTime*600;
             }
-        if(TotalTime<0)
+        if(TotalTime<=0)
         {
-            return  res.render('./rider/err', {title: 'Err'})
+            return  res.render('./rider/err', {title: 'Err',err:'Drop Date Is Invalid'})
          }
+         
 }
+let mobile=req.body.mobile
+var phoneno = /^\d{10}$/
+         if(!mobile.match(phoneno))
+         {
+            return  res.render('./rider/err', {title: 'Err',err:'Mobile Number Should Be 10 Digit '})
+
+         }
 
     let location=req.body.location;
-    let mobile=req.body.mobile
 
      res.render('rider/confirm-order',{title: 'Payment', data:vehicle,bill:bill,location:location,mobile:mobile,totalDays:TotalTime})
 
@@ -434,7 +439,6 @@ app.get('/rider-profile/all-orders', islogin, isrider,async (req, res) => {
         for (let i = 0; i < vehicles.length; i++) {
             await UserModel.findOne({ _id: vehicles[i].r_id }, (err, doc) => {
                 if (doc) {
-
                     owners[i] = doc.username
                 }
                 else {
